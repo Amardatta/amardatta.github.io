@@ -339,6 +339,11 @@ footer p{
 
 .aboutme-text{
     margin-top:15px;
+    text-align: left;
+}
+
+.aboutme-text p {
+    text-align: left;
 }
 
 #cover-text h1{
@@ -877,6 +882,14 @@ img[loading="lazy"] {
     #about .row{
         flex-wrap: wrap;
         flex-direction: column-reverse;
+    }
+    
+    #about .aboutme-text {
+        text-align: center;
+    }
+    
+    #about .aboutme-text p {
+        text-align: center;
     }
 }
 
