@@ -5,10 +5,10 @@
     const checkEl = document.getElementById('term-check');
     if(!textEl || !spinnerEl || !checkEl) return;
 
-    const deploying = 'deploying model v2.4...';
+    const deploying = 'training DIN model...';
     // Shorten success message on smaller screens to avoid long line
     function isMobile(){ return (window.matchMedia && window.matchMedia('(max-width: 992px)').matches); }
-    function getSuccess(){ return isMobile() ? ' successful' : ' rollout successful'; }
+    function getSuccess(){ return isMobile() ? ' complete' : ' +12% CTR achieved'; }
 
     function showDeploy(){
         // show deploying text + spinner
