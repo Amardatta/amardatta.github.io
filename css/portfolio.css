@@ -373,9 +373,9 @@ footer p{
 }
 
 #image-container img{
-    width:280px;
-    margin:auto;
-    border-radius: 45% 40%;
+    width: 280px;
+    margin: auto;
+    border-radius: 50% / 45%; /* elliptical: wider than tall */
 }
 ul li{
     font-size: 0.9rem;
