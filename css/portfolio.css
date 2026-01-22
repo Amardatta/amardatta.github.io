@@ -207,9 +207,9 @@ footer p{
 .about-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
+      gap: 1rem;
       max-width: 800px;
-      margin: 2.5rem auto;
+      margin: 2rem auto;
     }
 
 .about-grid > div {
@@ -220,9 +220,7 @@ footer p{
 .section-title {
       font-family: monospace;
       color: #06B6D4;
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
-      font-weight: 600;
+      margin-bottom: 0.5rem;
     }
 
 .section-text {
@@ -343,11 +341,6 @@ footer p{
     margin-top:15px;
 }
 
-.aboutme-text p{
-    line-height: 1.8;
-    margin-bottom: 2rem;
-}
-
 #cover-text h1{
     margin-bottom:0.5rem;
 }
@@ -380,15 +373,12 @@ footer p{
 }
 
 #image-container img{
-    width:250px;
+    width:280px;
     margin:auto;
-    border-radius: 50%;
-    box-shadow: 0 8px 24px rgba(6, 182, 212, 0.15);
+    border-radius: 45% 40%;
 }
 ul li{
     font-size: 0.9rem;
-    line-height: 1.8;
-    margin-bottom: 0.5rem;
 }
 
 /* Section 3 - Solutions */
@@ -766,6 +756,7 @@ img[loading="lazy"] {
     #image-container img{
         margin-top:50px;
         margin-bottom:0!important;
+        width:240px;
     }
     
     #competitions table{
