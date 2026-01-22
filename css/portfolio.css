@@ -339,11 +339,17 @@ footer p{
 
 .aboutme-text{
     margin-top:15px;
-    text-align: left;
 }
 
-.aboutme-text p {
+.aboutme-intro-text{
     text-align: left;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #334155;
+}
+
+.aboutme-intro-text p{
+    margin-bottom: 0;
 }
 
 #cover-text h1{
@@ -378,9 +384,9 @@ footer p{
 }
 
 #image-container img{
-    width: 250px;
+    width: 270px;
     margin: auto;
-    border-radius: 50% / 50%; /* elliptical: wider than tall */
+    border-radius: 50% / 48%; /* elliptical: wider than tall */
 }
 ul li{
     font-size: 0.9rem;
@@ -884,12 +890,9 @@ img[loading="lazy"] {
         flex-direction: column-reverse;
     }
     
-    #about .aboutme-text {
+    .aboutme-intro-text{
         text-align: center;
-    }
-    
-    #about .aboutme-text p {
-        text-align: center;
+        margin-bottom: 1rem;
     }
 }
 
