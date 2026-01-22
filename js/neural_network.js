@@ -1,6 +1,12 @@
-var w = c.width = 500,
-		h = c.height = 500,
-		ctx = c.getContext( '2d' ),
+// Check if canvas exists before initializing
+var canvas = document.getElementById('c');
+if (!canvas) {
+	console.warn('Neural network canvas not found');
+}
+
+var w = canvas ? canvas.width = 500 : 500,
+		h = canvas ? canvas.height = 500 : 500,
+		ctx = canvas ? canvas.getContext( '2d' ) : null,
 		
 		opts = {
 			
@@ -59,14 +65,17 @@ var w = c.width = 500,
 		
 		Tau = Math.PI * 2;
 
-ctx.fillStyle = '#181d26';
-ctx.fillRect( 0, 0, w, h );
-ctx.fillStyle = '#ccc';
-ctx.font = '50px Verdana';
-
-window.setTimeout( init, 4 ); // to render the loading screen
+if (ctx) {
+	ctx.fillStyle = '#181d26';
+	ctx.fillRect( 0, 0, w, h );
+	ctx.fillStyle = '#ccc';
+	ctx.font = '50px Verdana';
+	window.setTimeout( init, 4 ); // to render the loading screen
+}
 
 function init(){
+	
+	if (!ctx) return;
 	
 	connections.length = 0;
 	data.length = 0;
@@ -303,6 +312,8 @@ function squareDist( a, b ){
 }
 
 function anim(){
+	
+	if (!ctx) return;
 	
 	window.requestAnimationFrame( anim );
 	

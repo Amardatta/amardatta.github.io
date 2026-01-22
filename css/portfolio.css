@@ -9,8 +9,71 @@
     --bg-fourth:#B8CCD9;
 }
 
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Skip to content link for accessibility */
+.skip-to-main-content {
+    position: absolute;
+    left: -9999px;
+    z-index: 999;
+    padding: 1rem 1.5rem;
+    background-color: var(--h-primary);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 0 0 4px 0;
+}
+
+.skip-to-main-content:focus {
+    left: 0;
+    top: 0;
+}
+
+/* Improved focus states for better accessibility */
+a:focus-visible,
+button:focus-visible,
+.nav-link:focus-visible,
+.btn:focus-visible {
+    outline: 3px solid var(--h-primary);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* Remove default focus outline for mouse users */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Smooth transitions for all interactive elements */
+a, button, .nav-link, .btn {
+    transition: all 0.2s ease-in-out;
+}
+
 h1{
     margin-bottom:2rem;
+}
+
+/* Muted text class */
+.muted {
+    color: #64748b;
+    opacity: 0.95;
+}
+
+.metric {
+    font-weight: 600;
+    color: var(--h-primary);
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+}
+
+/* Improve text contrast in dark sections */
+.bg-primary .muted {
+    color: #cbd5e1;
+    opacity: 0.9;
 }
 
 header{
@@ -81,7 +144,25 @@ footer p{
       border-radius: 1rem;
       padding: 2rem;
       box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+.service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(to right, #06B6D4, #3B82F6);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    
+.service-card:hover::before {
+      transform: scaleX(1);
     }
 
 .service-card img{
@@ -174,11 +255,18 @@ footer p{
 .btn-outline-1{
     color:var(--h-primary);
     border-color:var(--h-primary);
+    transition: all 0.3s ease-in-out;
 }
 
 .btn-outline-1:hover{
     color:#fff;
     background-color:var(--h-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+}
+
+.btn-outline-1:active{
+    transform: translateY(0);
 }
 
 .table td{
@@ -371,6 +459,17 @@ ul li{
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 0.75rem;
+    transition: transform 0.3s ease;
+    background-color: #f1f5f9;
+}
+
+.case-thumb:hover {
+    transform: scale(1.02);
+}
+
+/* Image loading state */
+img[loading="lazy"] {
+    background-color: #f1f5f9;
 }
 
 .service-card h4{
@@ -621,6 +720,14 @@ ul li{
     }
 }
 
+/* Ensure minimum touch target size on mobile (44x44px for accessibility) */
+@media (hover: none) and (pointer: coarse) {
+    a, button, .nav-link, .btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
 @media screen and (max-width: 992px) {
     header{
         padding: 0.5rem 1.5rem;
@@ -830,4 +937,105 @@ ul li{
 
 @media screen and (max-width: 992px) {
     .terminal{ max-width:100%; margin:0.5rem 0 0 0; padding:0.45rem 0.6rem; font-size:0.9rem; }
+}
+
+/* Back to top button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--h-primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-to-top:hover {
+    background-color: #0891b2;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(6, 182, 212, 0.5);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top i {
+    font-size: 1.2rem;
+}
+
+/* Focus styles for accessibility */
+.back-to-top:focus {
+    outline: 3px solid var(--h-primary);
+    outline-offset: 2px;
+}
+
+/* Adjust button size for mobile */
+@media screen and (max-width: 768px) {
+    .back-to-top {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .back-to-top i {
+        font-size: 1rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    .back-to-top,
+    #nav-mobile,
+    #nav-desktop,
+    .navbar-toggler,
+    #side-bar,
+    #social-bar,
+    canvas {
+        display: none !important;
+    }
+    
+    header {
+        position: static;
+        page-break-after: avoid;
+    }
+    
+    section {
+        page-break-inside: avoid;
+    }
+    
+    a {
+        text-decoration: underline;
+        color: #000;
+    }
+    
+    .service-card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
