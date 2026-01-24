@@ -204,13 +204,14 @@ footer p{
     font-size: 0.95rem;
     color: #fff;
     }
+
 .about-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0 2rem;
-      margin: 0.5rem 0 2rem 0;
-      align-items: baseline;
-    }
+      display: grid; /* Establishes a CSS Grid container, enabling grid layout for direct children */
+      grid-template-columns: repeat(2, 1fr); /* Creates 2 equal-width columns (each 1 fraction of available width) */
+      gap: 0 2rem; /* Sets 0 vertical gap (row-gap) and 2rem horizontal gap (column-gap) between grid items */
+      margin: 0.5rem 0 2rem 0; /* Applies margin: top 0.5rem, right 0, bottom 2rem, left 0 */
+      align-items: baseline; /* Vertically aligns items so their text baselines line up across the row */
+}
 
 .about-grid > div {
     width: 100%;
