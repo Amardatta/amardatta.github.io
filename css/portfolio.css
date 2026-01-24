@@ -207,30 +207,29 @@ footer p{
 .about-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      max-width: 800px;
-      margin: 2rem auto;
-      align-items: start;
+      gap: 0 2rem;
+      margin: 2rem 0;
+      align-items: baseline;
     }
 
 .about-grid > div {
     width: 100%;
-    text-align:left;
-    display: flex;
-    flex-direction: column;
-    align-self: start;
+    text-align: left;
+    display: block;
 }
 
+.about-grid h4,
 .about-grid .section-title {
-    margin-top: 0 !important;
-    margin-bottom: 0.5rem !important;
-    padding-top: 0;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 0.5rem;
     line-height: 1.2;
+    font-size: 1.25rem;
 }
 
 .about-grid ul {
     margin: 0;
-    margin-top: 0.5rem;
+    margin-top: 0;
     padding-left: 1.2rem;
     list-style-position: outside;
 }
